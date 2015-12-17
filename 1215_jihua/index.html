@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <title>集花坊 - 创意盆栽</title>
+  <link href="http://7xlen1.com2.z0.glb.qiniucdn.com/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+  <!-- 变动的 -->
+  <link href="css/resetH5.css" rel="stylesheet" type="text/css" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+	<div id="container" style="display:block;overflow:hidden">
+   <div class="head_box">
+     <img class="bannerImg" src="http://7xl439.com2.z0.glb.qiniucdn.com/placeholder.jpg
+     " data-original="http://7xl439.com2.z0.glb.qiniucdn.com/1215_jihua_01.jpg"/>
+     <img class="bannerImg" src="http://7xl439.com2.z0.glb.qiniucdn.com/placeholder.jpg
+     " data-original="http://7xl439.com2.z0.glb.qiniucdn.com/1215_jihua_02.jpg"/> 
+     <img class="bannerImg" src="http://7xl439.com2.z0.glb.qiniucdn.com/placeholder.jpg
+     " data-original="http://7xl439.com2.z0.glb.qiniucdn.com/1215_jihua_03.jpg"/> 
+     <img class="bannerImg" src="http://7xl439.com2.z0.glb.qiniucdn.com/placeholder.jpg
+     " data-original="http://7xl439.com2.z0.glb.qiniucdn.com/1215_jihua_04.jpg"/> 
+     <a href="http://app.xinyihezi.com:8881/index_share.html#/goods/13681"><img class="bannerImg" src="http://7xl439.com2.z0.glb.qiniucdn.com/placeholder.jpg
+     " data-original="http://7xl439.com2.z0.glb.qiniucdn.com/1215_jihua_05.jpg"/> </a>
+     <a href="http://app.xinyihezi.com:8881/index_share.html#/goods/13683"><img class="bannerImg" src="http://7xl439.com2.z0.glb.qiniucdn.com/placeholder.jpg
+     " data-original="http://7xl439.com2.z0.glb.qiniucdn.com/1215_jihua_06.jpg"/> </a>
+     <a href="http://app.xinyihezi.com:8881/index_share.html#/goods/13684"><img class="bannerImg" src="http://7xl439.com2.z0.glb.qiniucdn.com/placeholder.jpg
+     " data-original="http://7xl439.com2.z0.glb.qiniucdn.com/1215_jihua_07.jpg"/> </a> 
+     <a href="http://app.xinyihezi.com:8881/index_share.html#/goods/13688"><img class="bannerImg" src="http://7xl439.com2.z0.glb.qiniucdn.com/placeholder.jpg
+     " data-original="http://7xl439.com2.z0.glb.qiniucdn.com/1215_jihua_08.jpg"/>  </a> 
+   </div>
+ </div>
+ <script type="text/javascript">
+  /*
+* if the target is in your eye
+* */
+$('img').addClass('lazy');
+var isLoaded=[];
+function isOnScreen(Node){
+  var win = $(window);
+  var viewport = {
+    top : win.scrollTop(),
+    left : win.scrollLeft()
+  };
+  viewport.right = viewport.left + win.width();
+  viewport.bottom = viewport.top + win.height();
+  var bounds = Node.offset();
+  bounds.right = bounds.left + Node.outerWidth();
+  bounds.bottom = bounds.top + Node.outerHeight();
+  return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+}
+/*
+* load the lazy image
+* the img must save the rrue url in the attribute "data-original"
+* */
+function lazyloadImg(imagesSelector,isloadedFlag){
+  var imgList=$(imagesSelector);
+  for(var i=0;i<imgList.length;i++){
+    var itemImg=$(imgList[i]);
+    if(isOnScreen(itemImg)&&!isloadedFlag[i]&&itemImg.prop("tagName").toLowerCase()=="img"){
+      isloadedFlag[i]=true;
+      itemImg.attr("src",itemImg.attr("data-original"));
+      itemImg.fadeOut(0);
+      itemImg.fadeIn(1000);
+    }else if(isOnScreen(itemImg)&&!isloadedFlag[i]&&itemImg.prop("tagName").toLowerCase()==="div"){
+      isloadedFlag[i]=true;
+      var imgUrl=itemImg.attr('data-original');
+      itemImg.css("background-image",'url('+imgUrl+')');
+      itemImg.fadeOut(0);
+      itemImg.fadeIn(1000);
+    }
+  }
+}
+jQuery(document).ready(function($) {
+  lazyloadImg('.lazy',isLoaded);
+  $(window).on('scroll', function(event) {
+    lazyloadImg('.lazy',isLoaded);
+  });
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
